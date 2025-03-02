@@ -4,7 +4,6 @@ import itertools
 import traceback
 import asyncio
 import ccxt.pro as ccxtpro
-import pandas as pd
 from typing import Dict, Tuple
 from collections import defaultdict
 
