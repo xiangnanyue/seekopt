@@ -1,2 +1,3 @@
 .env
 textual.log
+__pycache__/*
