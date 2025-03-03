@@ -258,7 +258,7 @@ class OrderbookSpreadMonitor(SpreadMonitorBase):
         :param index: 来源索引 ('a'或'b')
         """
         exchange_name = exchange.name.lower()
-        limit = self.support_depths.get(exchange_name, [1])[0]
+        limit = self.support_depths.get(exchange_name, [None])[0]
         while self.running:
             try:
                 order_book = await exchange.watch_order_book_for_symbols(
@@ -361,7 +361,7 @@ async def run_monitor(market_a, market_b, symbols=None):
 if __name__ == "__main__":
     try:
         asyncio.run(
-            run_monitor("binance.spot", "okx.future.linear", symbols=["BTC-USDT"])
+            run_monitor("binance.swap.inverse", "okx.swap.inverse", symbols=["BTC-USD"])
         )
     except KeyboardInterrupt:
         print("程序已终止")
